@@ -304,20 +304,20 @@
       </div>
     </div>
   </div>
-<button id="playBtn">Reproducir música</button>
-
-<audio id="musica" loop>
+  <audio id="musica" loop style="display:none">
   <source src="Flores Amarillas.mp3" type="audio/mpeg">
-</audio>
+  </audio>
+  <script>
+  const musica = document.getElementById('musica');
 
-<script>
-  const btn = document.getElementById('playBtn');
-  const audio = document.getElementById('musica');
+  function iniciarMusica() {
+    musica.play().catch(e => console.log('Error al reproducir:', e));
+    document.body.removeEventListener('click', iniciarMusica);
+    document.body.removeEventListener('touchstart', iniciarMusica);
+  }
 
-  btn.addEventListener('click', () => {
-    audio.play();
-    btn.style.display = 'none'; // oculta el botón después
-  });
+  document.body.addEventListener('click', iniciarMusica);
+  document.body.addEventListener('touchstart', iniciarMusica);
 </script>
 
 </body>
