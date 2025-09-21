@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramo de Flores</title>
+    <title>Flores Amarillas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -304,10 +304,21 @@
       </div>
     </div>
   </div>
-    <!-- Música de fondo -->
-  <audio autoplay loop>
-    <source src="Flores Amarillas.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+<button id="playBtn">Reproducir música</button>
+
+<audio id="musica" loop>
+  <source src="Flores Amarillas.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const btn = document.getElementById('playBtn');
+  const audio = document.getElementById('musica');
+
+  btn.addEventListener('click', () => {
+    audio.play();
+    btn.style.display = 'none'; // oculta el botón después
+  });
+</script>
+
 </body>
 </html>
